@@ -150,7 +150,67 @@ my_async_fun();
 // The part where "fetch" runs has a promise to be resolved. so we need to wait until it is resolved to then assign the o/p to the variable. Similarly for res.json as well.
 
 // -------------
+// Classes and Objects in JS
+class My_New_Class {
+    constructor(id,name) {
+        this.id = id
+        this.name = name
+    }
+    print() {
+        console.log("------------------------------")
+        console.log(this.id,this.name)
+    }
+}
+new_obj = new My_New_Class(1,"Vijay")
+new_obj.print();
 
+// ------------------------------
+// FUNCTIONAL Programming
+console.log("------------------------------")
+fun_array = ["value1", (value) => console.log(value)]
+fun_array[1](fun_array[0])
+// In the above code I have defined a function and stred it in an array and can refer to it as per the array index. Functions can be stored to a variable.
+
+
+// JSX - THis is a language that is a combination of javascript and XML( the HTML kind of lang). JSX is used in react for better reasons.
+
+
+// ------------------------------------
+/* Below mentioned Code is a sample react code to make use of JS, render components on UI */
+
+function singlecomp (valuetoprint) {
+  return(<h1> sample value here {valuetoprint} </h1>)
+}
+export function Menu (dataprops) {
+  // write logic code here and populate the return part which has the JSX code to render.
+  // Creating an array that creates a list of components that has to be rendered.
+  my_comp_array = []
+  // Looping through to create components and store in my_comp_array
+  for (let i =0; i<5; i++ )
+  {
+      // This calls the functional component 'singlecomp' for every value of i and the whole component is pushed to the array.
+      my_comp_array.push(singlecomp(i))
+  }
+  return(
+    <div>
+    // The array of components are rendered when referred asper below code.
+    {my_comp_array}
+    </div>  )
+}
+
+export function App(props) {
+  return (
+    <div className='App'>
+      <h1>Hello React.</h1>
+      <h2>Start editing to see some magic happen!</h2>
+      // THe menu component is being called here.
+      <Menu/>
+    </div>
+  );
+}
+
+// Log to console
+console.log('Hello console')
 
 
 
